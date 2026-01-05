@@ -1,20 +1,21 @@
-import bcrypt from "bcrypt";
 import { signToken } from "../utils/jwt.js";
 import { db } from "../config/firebase.js";  // ← NOW SAFE AND CLEAN
 import { sendEnrollmentEmail } from "../utils/email.js";
 import crypto from "crypto";
 
 const generateAccessCode = () => crypto.randomBytes(4).toString("hex").toUpperCase();
-
 export const adminLogin = async (req, res) => {
   const { email, password } = req.body;
+
   if (email !== process.env.ADMIN_EMAIL) {
     return res.status(401).json({ message: "Invalid admin" });
   }
-  const match = await bcrypt.compare(password, process.env.ADMIN_PASSWORD);
+
+  const match = password === process.env.ADMIN_PASSWORD;
   if (!match) {
     return res.status(401).json({ message: "Invalid password" });
   }
+
   const token = signToken({ role: "admin" });
   res.json({ token });
 };
