@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "type": "true_false",
+    "question": "Money laundering always involves funds derived from illegal activity.",
+    "correctAnswer": false
+  },
+  {
+    "id": 2,
+    "type": "true_false",
+    "question": "Terrorist financing may involve funds from legitimate sources.",
+    "correctAnswer": true
+  },
+  {
+    "id": 3,
+    "type": "true_false",
+    "question": "Credit unions are exempt from AML/CFT laws because they are member-owned.",
+    "correctAnswer": false
+  },
+  {
+    "id": 4,
+    "type": "true_false",
+    "question": "The Proceeds of Crime Act (POCA) criminalises money laundering in Trinidad and Tobago.",
+    "correctAnswer": true
+  },
+  {
+    "id": 5,
+    "type": "true_false",
+    "question": "Customer Due Diligence (CDD) is a one-time exercise completed at onboarding.",
+    "correctAnswer": false
+  },
+  {
+    "id": 6,
+    "type": "true_false",
+    "question": "Structuring transactions just below reporting thresholds is a recognised money laundering technique.",
+    "correctAnswer": true
+  },
+  {
+    "id": 7,
+    "type": "true_false",
+    "question": "Politically Exposed Persons (PEPs) automatically mean criminal activity.",
+    "correctAnswer": false
+  },
+  {
+    "id": 8,
+    "type": "true_false",
+    "question": "Enhanced Due Diligence (EDD) is required for higher-risk customers.",
+    "correctAnswer": true
+  },
+  {
+    "id": 9,
+    "type": "true_false",
+    "question": "Refusing to provide CDD documents is a red flag.",
+    "correctAnswer": true
+  },
+  {
+    "id": 10,
+    "type": "true_false",
+    "question": "Credit union staff are responsible for investigating suspected money laundering.",
+    "correctAnswer": false
+  },
+  {
+    "id": 11,
+    "type": "true_false",
+    "question": "Suspicious Transaction Reports (STRs) should be submitted immediately once suspicion arises.",
+    "correctAnswer": true
+  },
+  {
+    "id": 12,
+    "type": "true_false",
+    "question": "Tipping off a member that an STR has been filed is a criminal offence.",
+    "correctAnswer": true
+  },
+  {
+    "id": 13,
+    "type": "true_false",
+    "question": "The Compliance Officer is solely responsible for AML/CFT compliance.",
+    "correctAnswer": false
+  },
+  {
+    "id": 14,
+    "type": "true_false",
+    "question": "Large cash transactions are always suspicious.",
+    "correctAnswer": false
+  },
+  {
+    "id": 15,
+    "type": "true_false",
+    "question": "Risk-based approaches allow institutions to focus resources on higher-risk areas.",
+    "correctAnswer": true
+  },
+  {
+    "id": 16,
+    "type": "true_false",
+    "question": "FIUTT is responsible for receiving and analysing STRs.",
+    "correctAnswer": true
+  },
+  {
+    "id": 17,
+    "type": "true_false",
+    "question": "Internal audit plays no role in AML/CFT compliance.",
+    "correctAnswer": false
+  },
+  {
+    "id": 18,
+    "type": "true_false",
+    "question": "Poor record-keeping can expose a credit union to regulatory sanctions.",
+    "correctAnswer": true
+  },
+  {
+    "id": 19,
+    "type": "true_false",
+    "question": "Asset freezing may occur without a criminal conviction under certain laws.",
+    "correctAnswer": true
+  },
+  {
+    "id": 20,
+    "type": "true_false",
+    "question": "AML/CFT training must be provided to staff on a regular basis.",
+    "correctAnswer": true
+  },
+  {
+    "id": 21,
+    "type": "mcq",
+    "question": "Which law is the cornerstone of anti-money laundering legislation in Trinidad and Tobago?",
+    "options": [
+      "Financial Institutions Act",
+      "Proceeds of Crime Act",
+      "Companies Act",
+      "Central Bank Act"
+    ],
+    "correctAnswer": "Proceeds of Crime Act"
+  },
+  {
+    "id": 22,
+    "type": "mcq",
+    "question": "Which body supervises and receives STRs from credit unions?",
+    "options": [
+      "Central Bank",
+      "Police Service",
+      "FIUTT",
+      "Ministry of Finance"
+    ],
+    "correctAnswer": "FIUTT"
+  },
+  {
+    "id": 23,
+    "type": "mcq",
+    "question": "How long must AML/CFT records generally be retained?",
+    "options": [
+      "3 years",
+      "5 years",
+      "6 years",
+      "10 years"
+    ],
+    "correctAnswer": "6 years"
+  },
+  {
+    "id": 24,
+    "type": "mcq",
+    "question": "Which stage of money laundering involves introducing illicit funds into the financial system?",
+    "options": [
+      "Integration",
+      "Placement",
+      "Layering",
+      "Structuring"
+    ],
+    "correctAnswer": "Placement"
+  },
+  {
+    "id": 25,
+    "type": "mcq",
+    "question": "Which activity best illustrates layering?",
+    "options": [
+      "Cash deposit into an account",
+      "Purchase of a vehicle",
+      "Transfers through multiple accounts",
+      "Paying utility bills"
+    ],
+    "correctAnswer": "Transfers through multiple accounts"
+  },
+  {
+    "id": 26,
+    "type": "mcq",
+    "question": "Integration typically involves:",
+    "options": [
+      "Smurfing",
+      "Cross-border wire transfers",
+      "Returning funds into the legitimate economy",
+      "Currency exchange"
+    ],
+    "correctAnswer": "Returning funds into the legitimate economy"
+  },
+  {
+    "id": 27,
+    "type": "mcq",
+    "question": "What is the primary purpose of CDD?",
+    "options": [
+      "To increase profits",
+      "To meet audit requirements only",
+      "To understand the customer and expected activity",
+      "To avoid customer complaints"
+    ],
+    "correctAnswer": "To understand the customer and expected activity"
+  },
+  {
+    "id": 28,
+    "type": "mcq",
+    "question": "Which document is acceptable for identity verification?",
+    "options": [
+      "Expired passport",
+      "Verbal confirmation",
+      "Government-issued photo ID",
+      "Social media profile"
+    ],
+    "correctAnswer": "Government-issued photo ID"
+  },
+  {
+    "id": 29,
+    "type": "mcq",
+    "question": "When should CDD be refreshed?",
+    "options": [
+      "Never after onboarding",
+      "Only when requested by auditors",
+      "When circumstances or risk change",
+      "Every 20 years"
+    ],
+    "correctAnswer": "When circumstances or risk change"
+  },
+  {
+    "id": 30,
+    "type": "mcq",
+    "question": "Which customer would normally require EDD?",
+    "options": [
+      "A student with a savings account",
+      "A long-standing pensioner",
+      "A Politically Exposed Person",
+      "A child’s account"
+    ],
+    "correctAnswer": "A Politically Exposed Person"
+  },
+  {
+    "id": 31,
+    "type": "mcq",
+    "question": "Which is NOT an EDD measure?",
+    "options": [
+      "Senior management approval",
+      "Additional source of funds checks",
+      "Ignoring low-risk indicators",
+      "Increased transaction monitoring"
+    ],
+    "correctAnswer": "Ignoring low-risk indicators"
+  },
+  {
+    "id": 32,
+    "type": "mcq",
+    "question": "Which is a common red flag?",
+    "options": [
+      "Regular salary deposits",
+      "Transactions consistent with profile",
+      "Large unexplained cash deposits",
+      "Small grocery purchases"
+    ],
+    "correctAnswer": "Large unexplained cash deposits"
+  },
+  {
+    "id": 33,
+    "type": "mcq",
+    "question": "Structuring refers to:",
+    "options": [
+      "Loan repayment",
+      "Multiple small transactions below thresholds",
+      "Online banking use",
+      "Account closure"
+    ],
+    "correctAnswer": "Multiple small transactions below thresholds"
+  },
+  {
+    "id": 34,
+    "type": "mcq",
+    "question": "A member refuses to provide CDD documents. What should staff do?",
+    "options": [
+      "Ignore the request",
+      "Close the account immediately",
+      "Escalate to the Compliance Officer",
+      "Tip off the member"
+    ],
+    "correctAnswer": "Escalate to the Compliance Officer"
+  },
+  {
+    "id": 35,
+    "type": "mcq",
+    "question": "Who files STRs with FIUTT?",
+    "options": [
+      "Frontline staff",
+      "Internal audit",
+      "Compliance Officer",
+      "Board Chair"
+    ],
+    "correctAnswer": "Compliance Officer"
+  },
+  {
+    "id": 36,
+    "type": "mcq",
+    "question": "What should staff do after escalating suspicion internally?",
+    "options": [
+      "Stop servicing the member",
+      "Continue normal service unless directed otherwise",
+      "Question the member aggressively",
+      "Notify law enforcement directly"
+    ],
+    "correctAnswer": "Continue normal service unless directed otherwise"
+  },
+  {
+    "id": 37,
+    "type": "mcq",
+    "question": "Which action constitutes tipping off?",
+    "options": [
+      "Reporting internally",
+      "Documenting concerns",
+      "Informing the member an STR was filed",
+      "Monitoring transactions"
+    ],
+    "correctAnswer": "Informing the member an STR was filed"
+  },
+  {
+    "id": 38,
+    "type": "mcq",
+    "question": "Who is responsible for setting AML/CFT risk appetite?",
+    "options": [
+      "Frontline staff",
+      "Compliance Officer only",
+      "Senior Management and Board",
+      "FIUTT"
+    ],
+    "correctAnswer": "Senior Management and Board"
+  },
+  {
+    "id": 39,
+    "type": "mcq",
+    "question": "Internal audits primarily assess:",
+    "options": [
+      "Profitability",
+      "Customer satisfaction",
+      "Effectiveness of AML/CFT controls",
+      "Marketing strategy"
+    ],
+    "correctAnswer": "Effectiveness of AML/CFT controls"
+  },
+  {
+    "id": 40,
+    "type": "mcq",
+    "question": "External independent testing is required to:",
+    "options": [
+      "Replace internal controls",
+      "Benchmark compliance against regulatory expectations",
+      "Train staff",
+      "Eliminate STRs"
+    ],
+    "correctAnswer": "Benchmark compliance against regulatory expectations"
+  },
+  {
+    "id": 41,
+    "type": "mcq",
+    "question": "A strong compliance culture includes:",
+    "options": [
+      "Fear of reporting",
+      "Clear escalation channels",
+      "Minimal training",
+      "Informal procedures"
+    ],
+    "correctAnswer": "Clear escalation channels"
+  },
+  {
+    "id": 42,
+    "type": "mcq",
+    "question": "Which statement best reflects a risk-based approach?",
+    "options": [
+      "Treat all customers identically",
+      "Focus resources where risk is highest",
+      "Ignore low-risk customers",
+      "Avoid monitoring"
+    ],
+    "correctAnswer": "Focus resources where risk is highest"
+  },
+  {
+    "id": 43,
+    "type": "mcq",
+    "question": "Why are credit unions attractive to criminals?",
+    "options": [
+      "Large international presence",
+      "Community trust and cash usage",
+      "Weak technology only",
+      "Lack of regulation"
+    ],
+    "correctAnswer": "Community trust and cash usage"
+  },
+  {
+    "id": 44,
+    "type": "mcq",
+    "question": "A student sends TT$100,000 overseas. What should this trigger?",
+    "options": [
+      "No action",
+      "Automatic account closure",
+      "Enhanced scrutiny and escalation",
+      "Reward points"
+    ],
+    "correctAnswer": "Enhanced scrutiny and escalation"
+  },
+  {
+    "id": 45,
+    "type": "mcq",
+    "question": "Why is documentation critical in AML/CFT?",
+    "options": [
+      "For marketing",
+      "To protect staff and institution",
+      "To slow operations",
+      "To avoid audits"
+    ],
+    "correctAnswer": "To protect staff and institution"
+  },
+  {
+    "id": 46,
+    "type": "mcq",
+    "question": "Which best describes staff responsibility?",
+    "options": [
+      "Investigate crimes",
+      "Prosecute offenders",
+      "Identify and escalate suspicion",
+      "Freeze accounts independently"
+    ],
+    "correctAnswer": "Identify and escalate suspicion"
+  },
+  {
+    "id": 47,
+    "type": "mcq",
+    "question": "What is the greatest AML/CFT risk?",
+    "options": [
+      "Technology failure",
+      "Human complacency",
+      "Regulatory change",
+      "Audit fatigue"
+    ],
+    "correctAnswer": "Human complacency"
+  },
+  {
+    "id": 48,
+    "type": "mcq",
+    "question": "Which trend is increasing AML/CFT complexity?",
+    "options": [
+      "Reduced regulation",
+      "Fewer crimes",
+      "Cross-border financial flows",
+      "Manual systems"
+    ],
+    "correctAnswer": "Cross-border financial flows"
+  },
+  {
+    "id": 49,
+    "type": "mcq",
+    "question": "Environmental crime and greenwashing are now:",
+    "options": [
+      "Ignored risks",
+      "Emerging AML/CFT concerns",
+      "Only environmental issues",
+      "Outside compliance scope"
+    ],
+    "correctAnswer": "Emerging AML/CFT concerns"
+  },
+  {
+    "id": 50,
+    "type": "mcq",
+    "question": "AML/CFT compliance ultimately protects:",
+    "options": [
+      "Regulators only",
+      "Criminals",
+      "The institution, members, and society",
+      "Technology vendors"
+    ],
+    "correctAnswer": "The institution, members, and society"
+  }
+]
