@@ -48,7 +48,7 @@ export const enrollStudent = async (req, res) => {
       createdAt: new Date(),
     });
 
-    await sendEnrollmentEmail(normalizedEmail, accessCode);
+     sendEnrollmentEmail(normalizedEmail, accessCode);
 
     res.json({
       message: "Student enrolled and email sent",

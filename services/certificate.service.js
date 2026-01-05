@@ -1,6 +1,5 @@
 import PDFDocument from "pdfkit";
 import { v4 as uuid } from "uuid";
-import path from "path";
 
 export const generateCertificate = (name) => {
   const doc = new PDFDocument({
