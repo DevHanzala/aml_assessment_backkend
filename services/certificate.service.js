@@ -1,80 +1,49 @@
-import PDFDocument from "pdfkit";
-import { v4 as uuid } from "uuid";
+import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import fs from "fs";
+import path from "path";
 
-export const generateCertificate = (name) => {
-  const doc = new PDFDocument({
-    size: "A4",
-    margins: { top: 50, bottom: 50, left: 50, right: 50 },
+// Preload template once to improve performance
+let templateBytesCache = null;
+
+export const generateCertificate = async (name) => {
+  const templatePath = path.join(process.cwd(), "assets", "certificate_template.pdf");
+
+  if (!templateBytesCache) {
+    if (!fs.existsSync(templatePath)) {
+      console.error("Certificate template not found at:", templatePath);
+      throw new Error("Certificate template not found");
+    }
+    templateBytesCache = fs.readFileSync(templatePath);
+    console.log("Template loaded, size:", templateBytesCache.length);
+  }
+
+  const pdfDoc = await PDFDocument.load(templateBytesCache);
+const font = await pdfDoc.embedFont(StandardFonts.HelveticaBoldOblique);
+
+
+  const pages = pdfDoc.getPages();
+  const firstPage = pages[0];
+
+  const pageWidth = firstPage.getWidth();
+  const fontSize = 45;
+
+  // Calculate horizontal center
+  const textWidth = font.widthOfTextAtSize(name, fontSize);
+  const x = (pageWidth - textWidth) / 2;
+
+  // Adjust Y based on your template's blank area
+  const y = 300;
+
+  firstPage.drawText(name, {
+    x,
+    y,
+    size: fontSize,
+    font,
+    color: rgb(0, 0, 0),
   });
-  const id = uuid();
 
-  // Optional: add a top logo if you have one
-  // doc.image(path.join(process.cwd(), "assets/logo.png"), 220, 40, { width: 150 });
+  const pdfBytes = await pdfDoc.save();
+  console.log("Generated PDF size:", pdfBytes.length);
 
-  // Draw border
-  doc.rect(20, 20, doc.page.width - 40, doc.page.height - 40)
-    .lineWidth(2)
-    .strokeColor("#1E3A8A") // Blue border
-    .stroke();
-
-  doc.moveDown(3);
-
-  // Title
-  doc
-    .fillColor("#1E3A8A")
-    .fontSize(30)
-    .font("Helvetica-Bold")
-    .text("AML/CFT Certification", { align: "center" });
-
-  doc.moveDown(2);
-
-  // Awarded to
-  doc
-    .fillColor("#000000")
-    .fontSize(20)
-    .font("Helvetica")
-    .text("This certificate is proudly presented to", { align: "center" });
-
-  doc.moveDown(1);
-
-  doc
-    .fontSize(26)
-    .font("Helvetica-Bold")
-    .text(name, { align: "center" });
-
-  doc.moveDown(2);
-
-  // Achievement statement
-  doc
-    .fontSize(16)
-    .font("Helvetica")
-    .text("For successfully passing the AML/CFT Certification Exam.", { align: "center" });
-
-  doc.moveDown(3);
-
-  // Certificate info: ID and Date
-  doc
-    .fontSize(12)
-    .font("Helvetica-Oblique")
-    .fillColor("#555555")
-    .text(`Certificate ID: ${id}`, { align: "left" })
-    .text(`Date of Issue: ${new Date().toDateString()}`, { align: "left" });
-
-  // Optional signature line
-  doc
-    .moveDown(4)
-    .strokeColor("#000000")
-    .lineWidth(1)
-    .moveTo(350, doc.y)
-    .lineTo(550, doc.y)
-    .stroke();
-
-  doc
-    .fontSize(12)
-    .fillColor("#000000")
-    .text("Authorized Signatory", 350, doc.y + 5);
-
-  doc.end();
-
-  return { doc, id };
+  return pdfBytes;
 };

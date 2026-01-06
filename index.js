@@ -62,7 +62,7 @@ app.listen(port, () => {
   console.log(`🚀 Backend running on port ${port}`);
   // console.log(
   //   `🌐 Frontend allowed: ${
-  //     process.env.FRONTEND_URL || "https://aml-assessment-frontend.vercel.app"
+  //     process.env.FRONTEND_URL || "http://localhost:5173"
   //   }`
   // );
   // console.log("=================================");

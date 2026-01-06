@@ -47,7 +47,7 @@ export const startExam = async (req, res) => {
     });
   }
 
-  const questions = getRandomQuestions(30);
+  const questions = getRandomQuestions(20);
   const sessionId = uuid();
 
   activeExams.set(sessionId, {
@@ -69,58 +69,60 @@ export const startExam = async (req, res) => {
 
 
 export const submitExam = async (req, res) => {
-  const { answers, name, sessionId } = req.body;
-  if (!sessionId || !answers || !name) {
-    return res.status(400).json({ message: "Missing required fields" });
-  }
+  try {
+    const { answers, name, sessionId } = req.body;
+    if (!sessionId || !answers || !name) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
 
-  const examData = activeExams.get(sessionId);
-  if (!examData) {
-    return res.status(400).json({ message: "Invalid or expired session" });
-  }
+    const examData = activeExams.get(sessionId);
+    if (!examData) {
+      return res.status(400).json({ message: "Invalid or expired session" });
+    }
 
-  const { questions, email } = examData;
+    const { questions, email } = examData;
 
-  // Cleanup early
-  activeExams.delete(sessionId);
+    // Remove session early to prevent reuse
+    activeExams.delete(sessionId);
 
-  const result = scoreExam(questions, answers);
+    const result = scoreExam(questions, answers);
 
-  const candidateRef = db.collection("candidates").doc(email);
-  await candidateRef.set(
-    {
-      attempts: admin.firestore.FieldValue.increment(1),
-      lastScore: result.percentage,
-      lastAttemptDate: new Date(),
-      name,
-      passed: result.percentage >= 80,
-    },
-    { merge: true }
-  );
-
-  const updated = await candidateRef.get();
-  result.attempts = updated.data().attempts;
-
-  if (result.percentage >= 80) {
-    const { doc, id } = generateCertificate(name);
-    await candidateRef.update({ certificateId: id });
-
-    res.setHeader("Content-Type", "application/pdf");
-    res.setHeader(
-      "Content-Disposition",
-      `attachment; filename=AML_CFT_Certificate_${name}.pdf`
+    const candidateRef = db.collection("candidates").doc(email);
+    await candidateRef.set(
+      {
+        attempts: admin.firestore.FieldValue.increment(1),
+        lastScore: result.percentage,
+        lastAttemptDate: new Date(),
+        name,
+        passed: result.percentage >= 80,
+      },
+      { merge: true }
     );
 
-    // Handle stream errors
-    doc.on("error", (err) => {
-      console.error("PDF stream error:", err);
-      if (!res.headersSent) res.status(500).end();
-      else res.end();
-    });
+    const updated = await candidateRef.get();
+    result.attempts = updated.data().attempts;
 
-    doc.pipe(res);
-    doc.end();
-  } else {
+    // If candidate passed, generate and send PDF
+    if (result.percentage >= 80) {
+      const pdfBytes = await generateCertificate(name);
+      const pdfBuffer = Buffer.from(pdfBytes);
+
+      console.log("Sending PDF, size:", pdfBuffer.length);
+
+      res.setHeader("Content-Type", "application/pdf");
+      const safeName = name.replace(/[^a-z0-9]/gi, "_");
+      res.setHeader(
+        "Content-Disposition",
+        `attachment; filename=AML_CFT_Certificate_${safeName}.pdf`
+      );
+
+      return res.end(pdfBuffer);
+    }
+
+    // Otherwise, return JSON result
     res.json(result);
+  } catch (err) {
+    console.error("Error in submitExam:", err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
