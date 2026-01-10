@@ -99,8 +99,8 @@ export const submitExam = async (req, res) => {
       { merge: true }
     );
 
-    const updated = await candidateRef.get();
-    result.attempts = updated.data().attempts;
+    // const updated = await candidateRef.get();
+    // result.attempts = updated.data().attempts;
 
     // If candidate passed, generate and send PDF
     if (result.percentage >= 80) {
