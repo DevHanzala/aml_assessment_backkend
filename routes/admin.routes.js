@@ -3,8 +3,9 @@ import { adminLogin, enrollStudent, getEnrollments, unenrollStudent, getCandidat
 
 const router = express.Router();
 
-router.post("/login", adminLogin);
-router.post("/enroll", enrollStudent);
+// Admin login and student management routes
+router.post("/login", adminLogin); // Admin login
+router.post("/enroll", enrollStudent); // Enroll a new student
 router.get("/enrollments", getEnrollments); // New: Get all enrollments
 router.post("/unenroll", unenrollStudent); // New: Unenroll student
 router.post("/result", getCandidateResult); // New: Get candidate result

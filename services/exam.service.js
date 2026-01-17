@@ -1,6 +1,7 @@
 export const scoreExam = (questions, answers) => {
   let score = 0;
 
+  // Grade each question
   questions.forEach((q) => {
     let submitted = answers[q.id];
     let correct = q.correctAnswer;

@@ -3,8 +3,10 @@ import { db } from "../config/firebase.js";  // ← NOW SAFE AND CLEAN
 import { sendEnrollmentEmail } from "../utils/email.js";
 import crypto from "crypto";
 
+// Generate a random 8-character hexadecimal access code
 const generateAccessCode = () => crypto.randomBytes(4).toString("hex").toUpperCase();
 
+// Admin login
 export const adminLogin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -21,6 +23,7 @@ export const adminLogin = async (req, res) => {
   res.json({ token });
 };
 
+// Enroll a new student
 export const enrollStudent = async (req, res) => {
   try {
     const { email } = req.body;
@@ -62,7 +65,7 @@ export const enrollStudent = async (req, res) => {
   }
 };
 
-
+// Get all enrollments
 export const getEnrollments = async (req, res) => {
   try {
     const snapshot = await db.collection("enrollments")
@@ -83,7 +86,7 @@ export const getEnrollments = async (req, res) => {
   }
 };
 
-
+// Unenroll a student completely
 export const unenrollStudent = async (req, res) => {
   const { id, email } = req.body; // Need both enrollment ID and email
 
@@ -109,9 +112,7 @@ export const unenrollStudent = async (req, res) => {
   }
 };
 
-
-
-
+// Get candidate result by email
 export const getCandidateResult = async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).json({ message: "Email required" });

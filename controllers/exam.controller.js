@@ -8,6 +8,7 @@ import admin from "firebase-admin";
 
 const activeExams = new Map();
 
+// Start an exam session
 export const startExam = async (req, res) => {
   let normalizedEmail;
   let accessCode;
@@ -67,7 +68,7 @@ export const startExam = async (req, res) => {
   });
 };
 
-
+// Submit exam answers
 export const submitExam = async (req, res) => {
   try {
     const { answers, name, sessionId } = req.body;

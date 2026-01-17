@@ -1,6 +1,6 @@
-// utils/email.js
 import nodemailer from "nodemailer";
 
+// Configure the email transporter
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: Number(process.env.EMAIL_PORT),
@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// utils/email.js (small improvement)
+// Send enrollment email with access code and start link
 export const sendEnrollmentEmail = async (email, accessCode) => {
   const startLink = `${process.env.FRONTEND_URL}/start?email=${encodeURIComponent(email)}&code=${accessCode}`;
 
